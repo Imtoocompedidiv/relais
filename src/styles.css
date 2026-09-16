@@ -1,0 +1,620 @@
+:root {
+  font-family: Manrope, sans-serif;
+  color: #17283d;
+  background: #f3f6fa;
+  font-synthesis: none;
+  --accent: #6351d9;
+  --muted: #718198;
+  --line: #e1e6ef;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+button {
+  cursor: pointer;
+  border: 1px solid #d5ddea;
+  border-radius: 5px;
+  background: white;
+  color: inherit;
+  padding: 10px 15px;
+  font-size: 12px;
+  font-weight: 600;
+}
+button:hover:not(:disabled) {
+  filter: brightness(0.95);
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+.primary {
+  color: white;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+:focus-visible {
+  outline: 3px solid #ad9ffd;
+  outline-offset: 3px;
+}
+.shell {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  min-height: 100vh;
+}
+.sidebar {
+  background: #17283d;
+  color: #dce5f2;
+  padding: 25px 18px;
+  display: flex;
+  flex-direction: column;
+}
+.brand {
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  color: white;
+  margin: 0 8px 35px;
+}
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+nav a {
+  padding: 14px 17px;
+  font-size: 13px;
+  border-radius: 5px;
+}
+.active {
+  background: #2f4564;
+  color: white;
+  font-weight: 700;
+}
+.author {
+  margin-top: auto;
+  padding: 30px 10px 5px;
+  font-size: 11px;
+  color: #d1dbeb;
+}
+main {
+  padding: 30px;
+  min-width: 0;
+  max-width: 1550px;
+  width: 100%;
+  margin: auto;
+}
+header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+h1 {
+  margin: 0 0 9px;
+  font-size: clamp(27px, 2.7vw, 39px);
+  font-weight: 800;
+  letter-spacing: -1.25px;
+  line-height: 1.16;
+}
+header p {
+  margin: 0 0 8px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+header button {
+  white-space: nowrap;
+  padding: 14px 20px;
+}
+.demo-label {
+  font-size: 12px;
+  color: var(--muted);
+}
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 21px 0;
+  margin: 0 0 16px;
+}
+.metrics div {
+  padding: 0 28px;
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column-reverse;
+}
+.metrics div:last-child {
+  border: 0;
+}
+.metrics dd {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+}
+.metrics dt {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+}
+.green {
+  color: #218170;
+}
+.red {
+  color: #ba483f;
+}
+.clockbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 20px;
+  font-size: 11px;
+  color: var(--muted);
+}
+.clockbar > span {
+  margin-right: auto;
+}
+.clockbar strong {
+  color: #40536d;
+  margin-left: 8px;
+  font-weight: 500;
+}
+.workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+  gap: 18px;
+  align-items: stretch;
+}
+.deliveries,
+.inspector {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  min-width: 0;
+}
+.list-head {
+  padding: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+h2 {
+  font-size: 23px;
+  letter-spacing: -0.8px;
+  margin: 0;
+}
+select {
+  background: white;
+  border: 1px solid var(--line);
+  padding: 10px;
+  border-radius: 4px;
+  color: inherit;
+  font-size: 11px;
+  max-width: 100%;
+}
+.table-scroll {
+  overflow: auto;
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 12px;
+  white-space: nowrap;
+}
+th {
+  text-align: left;
+  text-transform: none;
+  font-size: 10px;
+  color: var(--muted);
+  font-weight: 600;
+  background: #fafbfe;
+  padding: 14px 18px;
+}
+td {
+  padding: 13px 18px;
+  border-top: 1px solid #ebeff6;
+}
+td button {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  text-align: left;
+  gap: 7px;
+}
+td strong {
+  font-size: 13px;
+  font-weight: 700;
+}
+td button span {
+  font-size: 10px;
+  color: var(--muted);
+  font-family: "IBM Plex Mono", monospace;
+}
+.selected {
+  background: #f0edff;
+}
+.badge {
+  font-size: 10px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  display: inline-block;
+}
+.delivered {
+  background: #e1f5e9;
+  color: #226b4c;
+}
+.queued,
+.retrying {
+  background: #fff1cc;
+  color: #91610a;
+}
+.dead {
+  background: #fce4e3;
+  color: #a42f32;
+}
+.inspector {
+  padding: 22px;
+}
+.inspector-top {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.inspector h2 {
+  font-size: 21px;
+  overflow-wrap: anywhere;
+}
+.identifier {
+  margin: 7px 0 0;
+  font:
+    10px "IBM Plex Mono",
+    monospace;
+  color: var(--muted);
+}
+h3 {
+  font-size: 14px;
+  margin: 26px 0 20px;
+}
+.timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 0 8px;
+  max-height: 268px;
+  overflow: auto;
+}
+.timeline li {
+  padding: 0 0 24px 26px;
+  position: relative;
+  border-left: 1px solid #dbe2ed;
+  margin-left: 3px;
+  font-size: 11px;
+}
+.timeline li:last-child {
+  padding-bottom: 7px;
+}
+.timeline li:before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 3px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ecb644;
+}
+.timeline li.ok:before {
+  background: #31956d;
+}
+.timeline li > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.timeline strong {
+  font-size: 11px;
+}
+.timeline p {
+  margin: 8px 0 4px;
+  color: var(--muted);
+  font-size: 10px;
+}
+.timeline li > span {
+  color: var(--muted);
+}
+.http {
+  padding: 3px 9px;
+  font-size: 10px;
+  border-radius: 3px;
+}
+.bad {
+  background: #fff0c8;
+  color: #925904;
+}
+.good {
+  background: #e1f5e9;
+  color: #226b4c;
+}
+.payload-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--line);
+  margin-top: 25px;
+}
+.payload-head h3 {
+  margin: 20px 0 14px;
+}
+.payload-head span {
+  font-size: 11px;
+  color: var(--accent);
+}
+pre {
+  background: #f5f7fc;
+  border: 1px solid #e9edf5;
+  border-radius: 4px;
+  overflow: auto;
+  padding: 17px;
+  font:
+    11px/1.8 "IBM Plex Mono",
+    monospace;
+  color: #355394;
+  margin: 0;
+}
+.key {
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 15px;
+  overflow-wrap: anywhere;
+}
+.key code {
+  display: block;
+  margin-top: 5px;
+  color: #40536d;
+}
+.empty {
+  font-size: 12px;
+  line-height: 1.7;
+  padding: 15px;
+  color: var(--muted);
+}
+.status {
+  font-size: 11px;
+  color: var(--muted);
+  min-height: 18px;
+  margin: 16px 0;
+}
+footer {
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 20px;
+  font-size: 10px;
+  color: #58708f;
+}
+footer > span {
+  margin-right: auto;
+}
+footer a {
+  color: var(--accent);
+  white-space: nowrap;
+}
+footer button {
+  padding: 7px 10px;
+  font-size: 10px;
+}
+dialog {
+  width: min(540px, calc(100% - 32px));
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 28px;
+  color: inherit;
+  background: white;
+  box-shadow: 0 24px 100px #17283d30;
+}
+dialog::backdrop {
+  background: #17283d66;
+}
+.dialog-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+.dialog-head h2 {
+  font-size: 21px;
+}
+dialog p {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--muted);
+}
+dialog label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 16px;
+  font-size: 12px;
+  font-weight: 600;
+}
+dialog input,
+dialog textarea {
+  width: 100%;
+  border: 1px solid #ccd5e4;
+  border-radius: 4px;
+  padding: 11px;
+  font-size: 12px;
+  color: inherit;
+}
+dialog textarea {
+  font-family: "IBM Plex Mono", monospace;
+}
+dialog select {
+  font-size: 12px;
+}
+.error {
+  color: #ac3838;
+  min-height: 14px;
+}
+.skip:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  clip-path: inset(50%);
+  overflow: hidden;
+}
+.skip:focus {
+  position: absolute;
+  z-index: 10;
+  background: white;
+  padding: 10px;
+}
+@media (max-width: 1200px) {
+  .shell {
+    grid-template-columns: 160px minmax(0, 1fr);
+  }
+  main {
+    padding: 24px;
+  }
+  .sidebar {
+    padding: 25px 12px;
+  }
+  .workspace {
+    grid-template-columns: 1fr 1fr;
+  }
+  td,
+  th {
+    padding: 13px;
+  }
+  .list-head {
+    padding: 18px;
+  }
+  .inspector {
+    padding: 18px;
+  }
+  header {
+    flex-direction: column;
+    gap: 14px;
+  }
+  .clockbar {
+    flex-wrap: wrap;
+  }
+  footer {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 900px) {
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+  .timeline {
+    max-height: none;
+  }
+  .shell {
+    grid-template-columns: 145px minmax(0, 1fr);
+  }
+}
+@media (max-width: 620px) {
+  .shell {
+    display: block;
+  }
+  .sidebar {
+    padding: 16px 20px;
+    flex-direction: row;
+    align-items: center;
+    gap: 22px;
+  }
+  .brand {
+    font-size: 28px;
+    margin: 0;
+  }
+  .sidebar nav {
+    flex-direction: row;
+    gap: 14px;
+    align-items: center;
+  }
+  .sidebar nav a {
+    font-size: 11px;
+    padding: 7px;
+  }
+  .sidebar .author {
+    display: none;
+  }
+  main {
+    padding: 25px 18px;
+  }
+  h1 {
+    font-size: 30px;
+  }
+  .metrics {
+    padding: 16px 0;
+  }
+  .metrics div {
+    padding: 0 12px;
+  }
+  .metrics dd {
+    font-size: 23px;
+  }
+  .metrics dt {
+    font-size: 10px;
+  }
+  .clockbar > span {
+    width: 100%;
+    margin-bottom: 3px;
+  }
+  .clockbar button {
+    font-size: 11px;
+  }
+  .list-head h2 {
+    font-size: 20px;
+  }
+  .list-head select {
+    font-size: 10px;
+  }
+  .workspace {
+    gap: 16px;
+  }
+  .inspector {
+    padding: 20px;
+  }
+  footer {
+    padding: 16px;
+    gap: 14px;
+  }
+  footer > span {
+    width: 100%;
+    line-height: 1.7;
+  }
+  .status {
+    line-height: 1.6;
+  }
+  td strong {
+    font-size: 12px;
+  }
+}

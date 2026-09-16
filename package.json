@@ -1,0 +1,36 @@
+{
+  "name": "relais",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run src",
+    "check": "tsc -b && vitest run src && npm run test:server",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test:server": "node --test server/*.test.mjs",
+    "server": "node server/main.mjs"
+  },
+  "dependencies": {
+    "@fontsource/ibm-plex-mono": "^5.2.0",
+    "@fontsource/manrope": "^5.3.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "prettier": "^3.9.6",
+    "typescript": "^5.9.0",
+    "vite": "^8.3.0",
+    "vitest": "^5.0.1"
+  },
+  "description": "Inspecter les tentatives, rejouer les échecs et garder une trace.",
+  "license": "MIT",
+  "author": "JD"
+}
